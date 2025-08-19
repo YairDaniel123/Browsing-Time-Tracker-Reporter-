@@ -2,7 +2,7 @@
 
 **Browsing Time Tracker & Reporter** נועד למעקב אישי על גלישה בלבד.
 
-## 🛡 איסוף מידע
+## 🛡 איסוף מידע 
 
 - הנתונים נשמרים במחשב המקומי בלבד.
 - הנתונים כוללים: כתובת האתר, כותרת האתר, וזמן גלישה.
