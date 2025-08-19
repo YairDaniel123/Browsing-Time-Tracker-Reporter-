@@ -38,7 +38,7 @@
 
 ## התקנה
 
-1. הורד את הקובץ ZIP מה־[Releases]([#](https://github.com/user-attachments/files/21846900/BrowsingTracker.zip)).
+1. הורד את הקובץ ZIP מ[כאן](https://github.com/user-attachments/files/21846900/BrowsingTracker.zip)
 2. פתח כרום → `chrome://extensions/`.
 3. הפעל **מצב מפתחים**.
 4. לחץ על **Load unpacked** ובחר את התיקייה שהורדת.
