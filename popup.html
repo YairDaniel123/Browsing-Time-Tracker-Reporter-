@@ -20,7 +20,7 @@
             margin-bottom: 5px; 
             font-weight: bold;
         }
-        input[type="email"], input[type="password"] { 
+        input[type="email"], input[type="password"], input[type="text"] { 
             width: 100%; 
             padding: 8px; 
             margin-bottom: 8px;
@@ -39,10 +39,11 @@
         .option-row { display: flex; align-items: center; margin-bottom: 15px; }
         .option-row input { margin-left: 8px; }
         .password-section { border: 1px solid #ddd; padding: 10px; margin-top: 15px; border-radius: 5px; background-color: #fafafa; }
-        #unlock-section { display: flex; gap: 5px; align-items: center; }
-        #unlock-section input { flex-grow: 1; margin-bottom: 0; }
+        #unlock-section { display: flex; flex-direction: column; gap: 5px; }
+        #unlock-inputs { display: flex; gap: 5px; width: 100%;}
+        #unlock-inputs input { flex-grow: 1; margin-bottom: 0; }
         button { border-radius: 4px; border: none; cursor: pointer; }
-        button#unlockButton { padding: 8px 12px; background-color: #f0ad4e; color: white; }
+        button#unlockButton { padding: 8px 12px; background-color: #f0ad4e; color: white; width: 100%; margin-top: 5px;}
         button#unlockButton:hover { background-color: #ec971f; }
         button#saveButton { width: 100%; background-color: #4CAF50; color: white; padding: 10px 15px; margin-top: 15px; }
         button#saveButton:hover { background-color: #45a049; }
@@ -91,7 +92,6 @@
 <body>
     <h3>הגדרות דוחות</h3>
 
-    <!-- ===== מתג הפעלה/כיבוי ראשי (חדש) ===== -->
     <div class="tracking-toggle-container">
         <label for="trackingToggle" style="margin-bottom: 0;">הפעלת מעקב ודיווח</label>
         <label class="switch">
@@ -121,9 +121,14 @@
             <input type="password" id="newPassword" placeholder="הקלד סיסמה חדשה">
             <input type="password" id="confirmPassword" placeholder="אמת את הסיסמה">
         </div>
+        
         <div id="unlock-section" style="display: none;">
-            <input type="password" id="currentPassword" placeholder="הכנס סיסמה לשינוי הגדרות">
-            <button id="unlockButton" type="button">שחרור</button>
+            <label for="currentPassword">שחרור נעילת הגדרות:</label>
+            <div id="unlock-inputs">
+                <input type="password" id="currentPassword" placeholder="הכנס סיסמה">
+                <input type="text" id="machineCodeInput" placeholder="הדבק קוד מכונה">
+            </div>
+            <button id="unlockButton" type="button">צור אישור שחרור</button>
         </div>
     </div>
 
