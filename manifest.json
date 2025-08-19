@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Browsing Time Tracker & Reporter",
+  "version": "4.1",
+  "description": "עוקב אחרי האתרים בהם ביקרת, ומשך זמן הגלישה בכל אחד מהם - ושולח דיווח יומי למייל.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "idle",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://zeta-olive-64.vercel.app/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "popup.html",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
