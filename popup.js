@@ -105,49 +105,48 @@ function handleDomainClick(event) {
 }
 
 // =================================================================
-// פונקציה חדשה: יצירת "מפתח" שחרור
+// פונקציה חדשה: יצירת "מפתח" שחרור - מקבלת את קוד המכונה
 // =================================================================
-function createUnlockToken() {
-    const tokenContent = `Extension unlocked for removal at: ${new Date().toISOString()}`;
-    const blob = new Blob([tokenContent], { type: 'text/plain' });
+function createUnlockToken(machineCode) {
+    const blob = new Blob([machineCode], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     
     chrome.downloads.download({
         url: url,
-        filename: 'ExtensionManager/unlock_token.txt', // ישמור בתיקיית משנה כדי לשמור על סדר
+        filename: 'ExtensionManager/unlock_token.txt',
         conflictAction: 'overwrite'
     });
 }
 
 // =================================================================
-// לוגיקת שחרור נעילה (מעודכנת)
+// לוגיקת שחרור נעילה (מעודכנת עם קוד מכונה)
 // =================================================================
 async function handleUnlock() {
     const passwordInput = document.getElementById('currentPassword');
-    const enteredPassword = passwordInput.value;
+    const machineCodeInput = document.getElementById('machineCodeInput');
     const status = document.getElementById('status');
-    if (!enteredPassword) return;
+    
+    const enteredPassword = passwordInput.value;
+    const enteredMachineCode = machineCodeInput.value.trim();
+
+    if (!enteredPassword || !enteredMachineCode) {
+        status.style.color = 'red';
+        status.textContent = 'יש להזין סיסמה וקוד מכונה.';
+        setTimeout(() => { status.textContent = ''; }, 2500);
+        return;
+    }
 
     const { passwordHash } = await chrome.storage.sync.get('passwordHash');
     const enteredPasswordHash = await hashPassword(enteredPassword);
 
     if (enteredPasswordHash === passwordHash) {
-        // --- החלק שנוסף ---
-        createUnlockToken(); // צור את קובץ המפתח!
-        // ------------------
-
-        const emailInput = document.getElementById('email');
-        const trackingToggle = document.getElementById('trackingToggle');
+        createUnlockToken(enteredMachineCode);
         
-        emailInput.removeAttribute('readonly');
-        trackingToggle.removeAttribute('disabled');
-        document.getElementById('unlock-section').style.display = 'none';
+        status.style.color = 'blue';
+        status.textContent = 'אישור נוצר! כעת, הרץ את קובץ השחרור.';
         
-        status.style.color = '#333';
-        status.textContent = 'ההגדרות פתוחות לעריכה. ניתן כעת להסיר את נעילת התוסף.';
-        emailInput.focus();
-        setTimeout(() => { status.textContent = ''; }, 4000);
         passwordInput.value = '';
+        machineCodeInput.value = '';
 
     } else {
         status.style.color = 'red';
@@ -169,9 +168,11 @@ domainButtons.forEach(button => {
     button.addEventListener('click', handleDomainClick);
 });
 
-document.getElementById('currentPassword').addEventListener('keypress', function(event) {
+function handleEnterPress(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         handleUnlock();
     }
-});
+}
+document.getElementById('currentPassword').addEventListener('keypress', handleEnterPress);
+document.getElementById('machineCodeInput').addEventListener('keypress', handleEnterPress);
