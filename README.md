@@ -36,21 +36,35 @@
 - התחרטם? רוצים להסיר את הנעילה? אין שום בעיה! פשוט מאוד, כנסו לתוסף - שחררו את נעילת התוסף ע"י הזנת הקוד שהוגדר לאחר ההתקנה, ומיד לאחר מכן הפעילו (שוב, כמנהל) את סקריפט הסרת הנעילה של כרום לכיבוי והסרת התוסף.
 
 
-## 🛠 התקנה
+## התקנה
 
 1. הורד את הקובץ ZIP מה־[Releases](#).
 2. פתח כרום → `chrome://extensions/`.
 3. הפעל **מצב מפתחים**.
 4. לחץ על **Load unpacked** ובחר את התיקייה שהורדת.
 
-## 🔒 פרטיות ואבטחה
+## פרטיות ואבטחה
 
 עיין בקובץ [PRIVACY.md](PRIVACY.md) למידע מלא על פרטיות.
 
-## 📷 צילומי מסך
+## צילומי מסך
 
-![Popup](assets/popup_screenshot.png)  
-![CSV Report Example](assets/csv_screenshot.png)
+<img width="677" height="316" alt="צילום מסך 2025-08-19 003822" src="https://github.com/user-attachments/assets/e4ac1c8a-6a89-458a-a4eb-f36df4347f33" />
+
+
+
+<img width="344" height="483" alt="צילום מסך 2025-08-19 003836" src="https://github.com/user-attachments/assets/223889ba-2251-495b-b61a-7ce162a9c69a" />
+
+
+
+<img width="348" height="482" alt="צילום מסך 2025-08-19 003854" src="https://github.com/user-attachments/assets/6e1f632c-8993-47e1-a9fe-6b84f0e8ddb9" />
+
+
+
+<img width="350" height="416" alt="צילום מסך 2025-08-19 003936" src="https://github.com/user-attachments/assets/c8d1de86-8499-4b3a-b96a-a5fb881b5a23" />
+
+<img width="348" height="415" alt="צילום מסך 2025-08-19 003914" src="https://github.com/user-attachments/assets/531946c0-cd3c-414c-8498-691240cc38f3" />
+
 
 ## 📄 רישיון
 
